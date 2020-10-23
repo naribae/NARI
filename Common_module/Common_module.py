@@ -68,7 +68,7 @@ def visualize_silhouette(cluster_lists, X_features):
         for i in range(n_cluster):
             ith_cluster_sil_values = sil_values[cluster_labels == i]
             ith_cluster_sil_values.sort()
-  
+
             size_cluster_i = ith_cluster_sil_values.shape[0]
             y_upper = y_lower + size_cluster_i
 
