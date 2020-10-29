@@ -1,5 +1,13 @@
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score, silhouette_samples
+
 import pandas as pd
 import datetime
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+import Common_module.Common_module as CM
 
 retailDF = pd.read_excel(io='C:\\Users\\hana\\Desktop\\Online Retail.xlsx')
 print(retailDF.info())
@@ -31,3 +39,13 @@ cust_df = cust_df.reset_index()
 cust_df['Recency'] = datetime.datetime(2021,10,2) - cust_df['Recency']
 cust_df['Recency'] = cust_df['Recency'].apply(lambda x:x.days+1)
 print(cust_df)
+
+X_feature = cust_df[['Recency', 'Frequency', 'Monetary']].values
+X_feature_scaled = StandardScaler().fit_transform(X_feature)
+
+kmeans = KMeans(n_clusters=3, random_state=0)
+labels = kmeans.fit_predict((X_feature_scaled))
+cust_df['cluster_label'] = labels
+print(silhouette_score(X_feature_scaled, labels))
+
+CM.visualize_silhouette([2,3,4,5], X_feature_scaled)
