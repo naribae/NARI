@@ -1,5 +1,3 @@
-
-# Lambda 인자리스트 : 표현식
 g = lambda x:x**2
 print(g(8))
 
@@ -27,8 +25,6 @@ t = [47, 11, 42, 13]
 result = reduce(lambda x, y : x + y, t)
 print(result)
 
-
-## Lambda응용
 a = [1, 6, 2, 5, 2, 7, 2, 8, 9, 11, 5, 26]
 result = list(map(lambda x : x**2, a))  # 제곱시키기
 print(result)
@@ -39,11 +35,7 @@ b = [12, 16, 24, 5, 20, 27, 12, 8, 9, 110, 51, 26]
 result3 = list(map(lambda x, y : x + y, a, b))  # 리스트 자료형 두 개 받아서 연산
 print(result3)
 
-a = [8, 4, 2, 5, 2,7, 9, 11, 26, 13]
-result = list(filter(lambda x : x > 7 and x < 15, a))
-print(result)
 
-## Python Loop안에 있는 Lambda 식
 def square(x):
     return lambda : x*x
 
@@ -55,6 +47,6 @@ listOfLambdas = [lambda i=i: i*i for i in range(1, 6)]
 for f in listOfLambdas:
    print(f())
 
-## 텍스트의 응용
+
 full_name = lambda first, last: f'Full name: {first.title()} {last.title()}'
-full_name('guido', 'van rossum')
+print(full_name('guido', 'van rossum'))
