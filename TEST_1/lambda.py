@@ -9,21 +9,22 @@ def inc(n):
 
 f = inc(2)
 g = inc(4)
-print(f(12))
-print(g(12))
+print(f(12))  #12+2
+print(g(12))  #12+4
 print(inc(2)(12))
 
 a = [1,2,3,4]
 b = [17,12,11,10]
-print(list(map(lambda x, y:x+y, a,b)))
+print(list(map(lambda x, y:x+y, a,b)))   #1+17,2+12,3+11,4+10
 
 foo = [2, 18, 9, 22, 17, 24, 8, 12, 27]
-print(list(filter(lambda x: x%3==0, foo)))
+print(list(filter(lambda x: x%3==0, foo)))   #3으로 나눴을때 나머지가 0인 값만 가져와라
 
 from functools import reduce
 t = [47, 11, 42, 13]
 result = reduce(lambda x, y : x + y, t)
-print(result)
+print('reduce')
+print(result)   #47+11= >58+42= > +13 =113
 
 a = [1, 6, 2, 5, 2, 7, 2, 8, 9, 11, 5, 26]
 result = list(map(lambda x : x**2, a))  # 제곱시키기
